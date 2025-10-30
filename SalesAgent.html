@@ -1,0 +1,17 @@
+<div id="n8n-chat-container"></div>
+
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  
+  createChat({
+    webhookUrl: 'https://gap-it.app.n8n.cloud/webhook/089cf898-b981-4577-96d8-21e271958ece/chat', // Replace this!
+    target: '#n8n-chat-container',
+    //mode: 'window', // Renders as a floating chat bubble
+    mode: 'fullscreen', // Renders as a full page chat
+    initialMessages: [
+    'Welcome! This questionnaire is designed to gather key details about your legacy application. Lets get started!', // First message
+    'Question 1 of 12. What is your name?'
+  ]
+    });
+</script>
