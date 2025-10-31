@@ -1,6 +1,46 @@
 <div id="n8n-chat-container"></div>
 
 <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<style>
+
+  :root {
+        --chat--font-family: "Roboto", sans-serif !important; 
+      }
+  
+  /* Applying styles to a common header class for demonstration */
+  .chat-header {
+    /* 1. Set the background image */
+    background-image: url('https://povedof.github.io/salesagent/resources/banner.png') !important;
+    
+    /* 2. Scale the image to cover the entire container. 
+       This ensures no blank space, but parts of the image may be clipped. */
+    background-size: cover !important; 
+    
+    /* 3. Center the image horizontally and vertically within the banner */
+    background-position: center !important; 
+    
+    /* 4. Prevent the image from repeating if the banner is larger than the image */
+    background-repeat: no-repeat !important; 
+    
+    /* 5. Set the desired height of the banner (This makes it "fixed size") */
+    height: 250px !important; /* Adjust this value (e.g., 80px, 120px) to your preference */
+
+    /* 6. Ensure default background color is transparent */
+    background-color: transparent !important;
+  }
+
+  .chat-message-list-wrapper, /* Common wrapper class */
+  .chat-messages-container,
+  .chat-body, 
+  .chat-messages-list, 
+  .chat-footer {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    height: auto;
+  }
+  
+</style>
 <script type="module">
   import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
   
@@ -9,8 +49,19 @@
     target: '#n8n-chat-container',
     //mode: 'window', // Renders as a floating chat bubble
     mode: 'fullscreen', // Renders as a full page chat
+    i18n: {
+        en: {
+            title: '',
+            subtitle: '',
+            // You can also change the 'get started' button text, etc.
+            getStarted: '',
+            inputPlaceholder: 'Type your answer here...',
+        },
+    },
     initialMessages: [
-    'Welcome! This questionnaire is designed to gather key details about your legacy application. Lets get started!', // First message
+    'GAPVelocity.ai 🤖 Welcome!', 
+    'Our AI Modernization Assistant is designed to gather key details about your legacy application.',
+    'Lets get started!', 
     'Question 1 of 12. What is your name?'
   ]
     });
