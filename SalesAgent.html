@@ -44,8 +44,16 @@
 <script type="module">
   import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
   
+  //Get query parameters from the current page URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const userId = urlParams.get('id');
+  //console.log(userId);
   createChat({
     webhookUrl: 'https://gap-it.app.n8n.cloud/webhook/089cf898-b981-4577-96d8-21e271958ece/chat', // Replace this!
+    // --- Pass the dynamic data via the metadata object ---
+    metadata: {
+      id: userId
+    },
     target: '#n8n-chat-container',
     //mode: 'window', // Renders as a floating chat bubble
     mode: 'fullscreen', // Renders as a full page chat
